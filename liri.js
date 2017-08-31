@@ -28,8 +28,14 @@ if (userInput === 'spotify-this-song') {
   	if (err) {
     	return console.log('Error occurred: ' + err);
   	}
-		var albumInfo = data.tracks.items[0];
-		console.log(JSON.stringify(albumInfo,null,4));
+		var artistName = data.tracks.items[0].album.artists[0].name;
+		console.log("Artist Name: " + artistName);
+		var songName = data.tracks.items[0].name;
+		console.log("Song Name: " + songName);
+		var previewLink = data.tracks.items[0].external_urls.spotify;
+		console.log("Spotify Preview Link: " + previewLink);
+		var albumTitle = data.tracks.items[0].album.name;
+		console.log("Album Title: " + albumTitle);
 	});
 }
 
